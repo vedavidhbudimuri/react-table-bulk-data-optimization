@@ -1,0 +1,30 @@
+{
+   "compilerOptions": {
+      "target": "es5",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "noImplicitAny": false,
+      "jsx": "react-jsx",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "noFallthroughCasesInSwitch": true
+   },
+   "include": ["src", "cypress", "tailwind.config.js"],
+   "exclude": [
+      "node_modules/@storybook",
+      "node_modules",
+      "node_modules/*",
+      "babel.config.js",
+      "tsconfig.json"
+   ]
+}
