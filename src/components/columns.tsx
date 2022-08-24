@@ -1,6 +1,8 @@
 import { format } from 'date-fns'
 import React from 'react'
 import TextField from '@mui/material/TextField'
+import PersonModel from '../stores/models/PersonModel'
+import CustomTextInput from './Common/CustomTextInput'
 
 export const COLUMNS = [
    {
@@ -13,25 +15,37 @@ export const COLUMNS = [
    {
       Header: 'First Name',
       Footer: 'First Name',
-      accessor: 'first_name',
+      accessor: 'firstName',
       sticky: 'left',
       Cell: (props) => {
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { firstName, updateFirstName }: PersonModel = props.row.original
+         return (
+            <CustomTextInput
+               defaultValue={firstName}
+               onEnterKey={updateFirstName}
+            />
+         )
       },
    },
    {
       Header: 'Last Name',
       Footer: 'Last Name',
-      accessor: 'last_name',
+      accessor: 'lastName',
       sticky: 'left',
       Cell: (props) => {
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { lastName, updateLastName }: PersonModel = props.row.original
+         return (
+            <CustomTextInput
+               defaultValue={lastName}
+               onEnterKey={updateLastName}
+            />
+         )
       },
    },
    {
       Header: 'Date of Birth',
       Footer: 'Date of Birth',
-      accessor: 'date_of_birth',
+      accessor: 'dob',
       Cell: ({ value }) => {
          return format(new Date(value), 'dd/MM/yyyy')
       },
@@ -41,7 +55,13 @@ export const COLUMNS = [
       Footer: 'Country',
       accessor: 'country',
       Cell: (props) => {
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { firstName, updateFirstName }: PersonModel = props.row.original
+         return (
+            <CustomTextInput
+               defaultValue={firstName}
+               onEnterKey={updateFirstName}
+            />
+         )
       },
    },
    {
@@ -49,7 +69,10 @@ export const COLUMNS = [
       Footer: 'Phone',
       accessor: 'phone',
       Cell: (props) => {
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { phone, updatePhone }: PersonModel = props.row.original
+         return (
+            <CustomTextInput defaultValue={phone} onEnterKey={updatePhone} />
+         )
       },
    },
    {
@@ -57,7 +80,10 @@ export const COLUMNS = [
       Footer: 'Email',
       accessor: 'email',
       Cell: (props) => {
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { email, updateEmail }: PersonModel = props.row.original
+         return (
+            <CustomTextInput defaultValue={email} onEnterKey={updateEmail} />
+         )
       },
    },
    {
@@ -65,8 +91,8 @@ export const COLUMNS = [
       Footer: 'Age',
       accessor: 'age',
       Cell: (props) => {
-         console.log('TCL: props', props)
-         return <TextField id='outlined-required' defaultValue={props.value} />
+         const { age, updateAge }: PersonModel = props.row.original
+         return <CustomTextInput defaultValue={age} onEnterKey={updateAge} />
       },
    },
 ]

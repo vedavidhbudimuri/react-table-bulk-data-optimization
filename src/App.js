@@ -1,19 +1,19 @@
-import "./App.css";
+import './App.css'
 
-import { Provider } from "mobx-react";
-import React from "react";
+import { Provider } from 'mobx-react'
+import React from 'react'
 
-import TableController from "./components/TableController";
-import stores from "./stores";
+import TableController from './components/TableController'
+import stores from './stores/index'
 
 function App() {
-  return (
-    <Provider {...stores}>
-      <div className="App">
-        <TableController />
-      </div>
-    </Provider>
-  );
+   return (
+      <Provider {...stores}>
+         <div className='App'>
+            <TableController />
+         </div>
+      </Provider>
+   )
 }
 
-export default App;
+export default App

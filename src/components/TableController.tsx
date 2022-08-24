@@ -10,11 +10,12 @@ import { COLUMNS } from './columns'
 import MultipleSelectChip from './Common/Select'
 
 const TableController = observer(() => {
-   const { filteredData, updateFilter, filters } = useContext(TableStoreContext)
+   const { filteredData, updateFilter } = useContext(TableStoreContext)
 
    const onChangeCountry = (countries: string[]) => {
       updateFilter('country', countries)
    }
+
    return (
       <div style={{ padding: '12px' }}>
          <div>

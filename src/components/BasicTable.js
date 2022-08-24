@@ -5,8 +5,8 @@ import { useTable } from 'react-table'
 import './table.css'
 
 export const BasicTable = observer(({ columnData, personsData }) => {
-   const columns = useMemo(() => columnData, [])
-   const data = useMemo(() => personsData, [])
+   const columns = columnData
+   const data = personsData
 
    const {
       getTableProps,
@@ -19,6 +19,8 @@ export const BasicTable = observer(({ columnData, personsData }) => {
       columns,
       data,
    })
+
+   console.log('re render')
 
    return (
       <>

@@ -1,5 +1,6 @@
 import { observable, ObservableMap, action, computed } from 'mobx'
 import MOCK_DATA from '../components/MOCK_DATA.json'
+import PersonModel from './models/PersonModel'
 
 interface PersonDataType {
    id: number
@@ -15,7 +16,7 @@ interface PersonDataType {
 class TableStore {
    @observable filters!: Map<string, string[]>
 
-   @observable tableData!: Map<number, PersonDataType>
+   @observable tableData!: Map<number, PersonModel>
 
    constructor() {
       this.init()
@@ -26,7 +27,7 @@ class TableStore {
       this.filters = new ObservableMap()
       this.tableData = new ObservableMap()
       MOCK_DATA.map((data) => {
-         this.tableData.set(data.id, data)
+         this.tableData.set(data.id, new PersonModel(data))
       })
    }
 
@@ -45,6 +46,9 @@ class TableStore {
    updateFilter(filterKey: string, filterValues: string[]) {
       this.filters.set(filterKey, filterValues)
    }
+
+   @action.bound
+   updatePersonDetails(personId: string, key: string, value: any) {}
 }
 
 export default TableStore
