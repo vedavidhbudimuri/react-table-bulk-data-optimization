@@ -11,7 +11,6 @@ import { COLUMNS_V8 } from './v8/columns'
 
 const TableController = observer(() => {
    const { filteredData, updateFilter } = useContext(TableStoreContext)
-   console.log('TCL: TableController -> filteredData', filteredData)
 
    const onChangeCountry = (countries: string[]) => {
       updateFilter('country', countries)

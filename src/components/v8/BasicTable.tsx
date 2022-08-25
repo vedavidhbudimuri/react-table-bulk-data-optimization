@@ -19,7 +19,6 @@ export const BasicTable = observer(
       personsData: PersonModel[]
    }) => {
       const [data, setData] = useState([...personsData])
-      console.log('TCL: data', data)
 
       useEffect(() => {
          setData(personsData)
